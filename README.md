@@ -12,12 +12,10 @@ In Arduino werden folgende Bibliotheken benötigt:
 
 FastLED;
 FastLED_NeoMatrix;
-Framebuffer_GFX;
-Adafruit-GFX-Library;
-ESP8266WiFi;
-ESP8266WebServer;
-ESP8266mDNS;
 
+Zudem muss das ESP8266 Board hinzugefügt werden. 
+
+Eine kurze Anleitung als PDF ist in den Dateien zu finden.
 
 WebServer incl. OTA hab ich mit übernommen, somit muss die Uhr zum Flashen nicht immer an USB angeschlossen werden. 
 Einfach http://<hostname>.local im Browser eingeben und dann die entsprechende Datei wählen. 
