@@ -11,9 +11,10 @@
 // *************             Ahnung davon haben :D :D               *************
 // ******************************************************************************
 
-//Version TimeStamp: 02.06.2020  19:40
-#define FW_Version  "0.15" 
+//Version TimeStamp: 16.06.2020  21:22
+#define FW_Version  "0.17" 
 
+#define FASTLED_FORCE_SOFTWARE_SPI
 #include <FastLED.h>
 #include <FastLED_NeoMatrix.h>
 #include <ESP8266WiFi.h>
