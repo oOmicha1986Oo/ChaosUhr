@@ -1,8 +1,11 @@
 # ChaosUhr
-ChaosBlinkiBuntiUhr für ChaosUhr
+ChaosBlinkiBuntiUhr für ChaosUhr (https://www.thingiverse.com/thing:4152063 by BishobMarthen)
 
 Hallo zusammen, 
-ich habe die Uhr um ein paar Animationen und Bilder erweitert.
+
+Anleitung zur Uhr siehe Thingiverse Link oben.
+
+Ich habe die Uhr um ein paar Animationen und Bilder erweitert.
 Zudem habe ich den Intervall zum Anzeigen der Uhrzeit angepasst. 
 
 Intervall ist nun: 
