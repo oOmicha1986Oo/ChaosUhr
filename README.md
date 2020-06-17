@@ -15,10 +15,22 @@ In Arduino werden folgende Bibliotheken benötigt:
 
 FastLED;
 FastLED_NeoMatrix;
+WiFiManager;
 
 Zudem muss das ESP8266 Board hinzugefügt werden. 
 
-Eine kurze Anleitung als PDF ist in den Dateien zu finden.
+Einfach ZIP entpacken, FlashESP8266 im Ordner ausführen, COM und Image wählen und auf flashen klicken. 
+
+Danach sollte ein neues WLAN Netzwerk "ChaosUhr" angezeigt werden.
+Mit diesem verbinden und es sollte direkt die Landingpage laden. 
+Unter Configure WiFi das WLAN wählen und das Passwort eintragen. Danach auf speichern. 
+
+Es kann sein dass man den Wemos danach nochmal kurz vom Strom nehmen muss, danach sollte er sich dann aber mit dem WLAN verbinden und das Sketch loslegen. 
+
+Sobald das Sketch beim laden kein WLAN findet sich nicht verbinden kann oder man die Daten falsch eingegeben hat, lädt er wieder den AP Modus und man kann die WLAN Daten erneut eingeben. 
+
+Ich weiß auch nicht so ganz, wie er sich verhält, wenn zuvor schon WLAN Daten auf dem ESP gespeichert wurden. 
+Evtl. muss man dann erst mal den Flash komplett löschen
 
 WebServer incl. OTA hab ich mit übernommen, somit muss die Uhr zum Flashen nicht immer an USB angeschlossen werden. 
 Einfach http://<hostname>.local im Browser eingeben und dann die entsprechende Datei wählen. 
