@@ -10,9 +10,10 @@
 // *************  vernüfntigen Sketch schon Leute beschäftigen die  *************
 // *************             Ahnung davon haben :D :D               *************
 // ******************************************************************************
+#include <FS.h>                   //this needs to be first, or it all crashes and burns...
 
-//Version TimeStamp: 16.06.2020  21:22
-#define FW_Version  "0.17" 
+//Version TimeStamp: 17.06.2020  20:17
+#define FW_Version  "0.18" 
 
 #define FASTLED_FORCE_SOFTWARE_SPI
 #include <FastLED.h>
@@ -21,6 +22,8 @@
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
+#include <WiFiManager.h> 
+#include <DNSServer.h>
 #include <time.h>
 #include <Fonts/Picopixel.h>
 #include <Fonts/TomThumb.h>
@@ -43,11 +46,9 @@
 //------------------- BEGIN USER SETTINGS -------------------
 
 //                  **********************
-//                  * WLAN Zugangsdaten  *
+//                  *      Hostname      *
 //                  **********************
 
-const char* ssid     = "WLAN Name";              // WLAN Name
-const char* password = "WLAN Passwort";          // WLAN Passwort
 const char* host     = "ChaosUhr";               // WLAN Name
 
 //                  **********************
@@ -148,18 +149,20 @@ void setup() {
 //  *       Starte WLAN       *
 //  ***************************
 
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
+  //WiFiManager  
+  WiFiManager wifiManager;
   WiFi.hostname(host);
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
-    delay(500);
+  wifiManager.setBreakAfterConfig(true);  
+  if (!wifiManager.autoConnect("ChaosUhr")) {
+    Serial.println("failed to connect, we should reset as see if it connects");
+    delay(5000);
+    ESP.reset();    
   }
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP()); 
-  delay(250);
+  delay(3000);
+  Serial.println("connected...yeey :)");
+  Serial.println("local ip");
+  Serial.println(WiFi.localIP());
+  delay(5000);
 
 //  ***************************
 //  *    Starte WEBSERVER     *
@@ -167,6 +170,7 @@ void setup() {
     
   if (WiFi.status() == WL_CONNECTED) {
     MDNS.begin(host);
+    Serial.println(WiFi.hostname());
     server.on("/", HTTP_GET, []() {
       server.sendHeader("Connection", "close");
       server.send(200, "text/html", serverIndex);
