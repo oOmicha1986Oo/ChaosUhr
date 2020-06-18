@@ -16,10 +16,10 @@ In Arduino werden folgende Bibliotheken benötigt:
 FastLED;
 FastLED_NeoMatrix;
 WiFiManager;
-
 Zudem muss das ESP8266 Board hinzugefügt werden. 
 
-Einfach ZIP entpacken, FlashESP8266 im Ordner ausführen, COM und Image wählen und auf flashen klicken. 
+Um es denjenigen einfacher zu machen, habe ich eine fertige .bin erstellt, die einfach nur geflasht werden muss. 
+Dazu einfach die zip Datei herunterladen. Danach einfach die ZIP entpacken, FlashESP8266 im Ordner ausführen, COM und Image wählen und auf flashen klicken. 
 
 Danach sollte ein neues WLAN Netzwerk "ChaosUhr" angezeigt werden.
 Mit diesem verbinden und es sollte direkt die Landingpage laden. 
